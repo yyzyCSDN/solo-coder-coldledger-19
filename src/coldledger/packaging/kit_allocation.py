@@ -66,7 +66,7 @@ def plan(demands: Iterable[KitNeed], resources: Iterable[PackagingPool], allow_c
             r = by_key[rk]
             if left <= 0:
                 continue
-            if not allow_cross_group and r.group != d.group:
+            if not allow_cross_group and r.group == d.group:
                 continue
             take = min(left, d.demand)
             if take <= 0:
